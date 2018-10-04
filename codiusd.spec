@@ -15,6 +15,7 @@ BuildRoot: %{buildroot}
 Requires: nodejs
 Requires: hyper-container
 Requires: hyperstart
+Requires: qemu-hyper
 Requires: moneyd-xrp
 BuildRequires: systemd-units
 AutoReqProv: no
