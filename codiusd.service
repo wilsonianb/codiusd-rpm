@@ -1,0 +1,19 @@
+[Unit]
+Description=Codius Host Software
+After=network.target nss-lookup.target
+
+[Service]
+ExecStart=/usr/bin/npm start
+Environment="DEBUG=*"
+Environment=CODIUS_PUBLIC_URI=https://%H
+WorkingDirectory=/usr/lib/codiusd
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=codiusd
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
