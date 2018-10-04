@@ -3,7 +3,7 @@ MAINTAINER Brandon Wilson <brandon@coil.com>
 
 RUN yum update -y
 
-RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y mock nodejs rpm-build sudo
 
 # Cannot run mock as root
