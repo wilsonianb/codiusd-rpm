@@ -24,8 +24,9 @@ docker build -t codiusd-rpm .
 ## Run
 
 ```
-docker run --cap-add=SYS_ADMIN -v <path-to-out-dir>:/opt/codiusd/out codiusd-rpm
+docker run --cap-add=SYS_ADMIN --rm -v <path-to-out-dir>:/opt/codiusd/out codiusd-rpm
 ```
 
 The container must run with `SYS_ADMIN` in order to build the rpm with [Mock](https://github.com/rpm-software-management/mock/wiki#mock-inside-docker).
 
+On Ubuntu, `--security-opt apparmor:unconfined` may also be required.
