@@ -4,7 +4,7 @@ After=network.target nss-lookup.target
 
 [Service]
 ExecStart=/usr/bin/npm start
-Environment="DEBUG=*"
+Environment="DEBUG=*,-follow-redirects,-*:trace"
 Environment=CODIUS_PUBLIC_URI=https://%H
 WorkingDirectory=/usr/lib/codiusd
 Restart=always
