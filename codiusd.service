@@ -1,6 +1,7 @@
 [Unit]
 Description=Codius Host Software
 After=network.target nss-lookup.target
+Wants=hyperd.service
 
 [Service]
 ExecStart=/usr/bin/npm start

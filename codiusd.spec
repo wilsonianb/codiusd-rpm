@@ -38,6 +38,7 @@ install -D codiusd.service %{buildroot}%{_unitdir}/codiusd.service
 
 %post
 systemctl enable %{_unitdir}/codiusd.service
+systemctl add-wants codiusd.service moneyd-xrp
 
 %clean
 rm -rf %{buildroot}
@@ -51,4 +52,3 @@ rm -rf %{buildroot}
 %changelog
 * Thu Sep 27 2018 Brandon Wilson <brandon@coil.com> - 1.2.5
 - Initial rpm packaging
-

@@ -20,4 +20,3 @@ COPY codiusd.service ./
 COPY build_rpm.sh ./
 
 CMD ./build_rpm.sh
-
