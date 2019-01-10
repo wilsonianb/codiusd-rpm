@@ -18,6 +18,7 @@ Requires: hyperstart
 Requires: qemu-hyper
 Requires: moneyd-xrp
 BuildRequires: systemd-units
+%{?systemd_requires}
 AutoReqProv: no
 
 %description
@@ -37,8 +38,13 @@ install -d %{buildroot}/var/lib/codius
 install -D codiusd.service %{buildroot}%{_unitdir}/codiusd.service
 
 %post
-systemctl enable %{_unitdir}/codiusd.service
-systemctl add-wants codiusd.service moneyd-xrp
+%systemd_post codiusd.service
+
+%preun
+%systemd_preun codiusd.service
+
+%postun
+%systemd_postun_with_restart codiusd.service
 
 %clean
 rm -rf %{buildroot}
@@ -50,5 +56,9 @@ rm -rf %{buildroot}
 %{_unitdir}/codiusd.service
 
 %changelog
+* Tue Jan 10 2019 Brandon Wilson <brandon@coil.com> - 2.0.0-1
+- Add scriptlets
+- Do not auto enable packages
+
 * Thu Sep 27 2018 Brandon Wilson <brandon@coil.com> - 1.2.5
 - Initial rpm packaging
